@@ -6,7 +6,7 @@ class GetWebpage {
     Response response;
     int nTry = 0;
     do {
-      response = await get(page);
+      response = await Dio().get(page);
       nTry++;
     } while (response.statusCode != 200 && nTry < _maxTry);
     return response;
