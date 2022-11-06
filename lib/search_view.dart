@@ -55,7 +55,6 @@ class _SearchViewState extends State<SearchView> {
                 },
                 icon: const Icon(
                   Icons.clear_outlined,
-                  color: Colors.grey,
                 ),
               ),
             ),
