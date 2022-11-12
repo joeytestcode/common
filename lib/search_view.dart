@@ -12,17 +12,19 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-  final _controller = TextEditingController();
-  late FocusNode _focusNode;
+  late final TextEditingController _controller;
+  late final FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
+    _controller = TextEditingController();
     _focusNode = FocusNode();
   }
 
   @override
   void dispose() {
+    _controller.dispose();
     _focusNode.dispose();
     super.dispose();
   }
