@@ -16,7 +16,7 @@ class MyAbout extends StatelessWidget {
     final Uri uri = Uri.parse(homePage);
     return Column(
       children: [
-        Image.memory(Uint8List.fromList(imageCache.codeUnits)),
+        Image.memory(base64.decode(imageCache)),
         // const Image(image: AssetImage('images/jrun.png')),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
