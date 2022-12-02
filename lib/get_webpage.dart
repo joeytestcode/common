@@ -15,6 +15,6 @@ class GetWebpage {
   }
 
   static Future<Document> getDocument(String page) async {
-    return parse((await get(page)));
+    return parse((await get(page)).body);
   }
 }
