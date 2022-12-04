@@ -8,7 +8,14 @@ class GetWebpage {
     http.Response response;
     int nTry = 0;
     do {
-      response = await http.get(Uri.parse(page));
+      response = await http.get(
+        Uri.parse(page),
+        headers: {
+          'Access-Control-Allow-Origin': 'https://joeytestcode.github.io',
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT,OPTIONS',
+        },
+      );
       nTry++;
     } while (response.statusCode != 200 && nTry < _maxTry);
     return response;
