@@ -20,6 +20,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
+# check if it's normally connected to local
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
