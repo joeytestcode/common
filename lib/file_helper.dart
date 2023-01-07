@@ -2,12 +2,14 @@ import 'package:path_provider/path_provider.dart';
 
 class FileHelper {
   static Future<String> get localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    return directory.path;
+    return (await getApplicationDocumentsDirectory())!.path;
   }
 
   static Future<String> get downloadPath async {
-    final directory = await getDownloadsDirectory();
-    return directory.path;
+    return (await getDownloadsDirectory())!.path;
+  }
+
+  static Future<String> get externalStoragePath async {
+    return (await getExternalStorageDirectory())!.path;
   }
 }
