@@ -11,10 +11,12 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Add to pubspec.yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  common:
-    git:
-      url: https://github.com/joeytestcode/common.git
+## In pubspec.yaml file
+    dependencies:
+      flutter:  
+        sdk: flutter
+        
+    # Add the following in dependencies
+      common:  
+        git:    
+          url: https://github.com/joeytestcode/common.git
