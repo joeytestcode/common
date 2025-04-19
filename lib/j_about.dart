@@ -12,6 +12,7 @@ class JAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     final Uri uri = Uri.parse(homePage);
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Image.memory(base64.decode(imageLogo)),
         Row(
@@ -25,7 +26,7 @@ class JAbout extends StatelessWidget {
               ),
             )
           ],
-        )
+        ),
       ],
     );
   }
