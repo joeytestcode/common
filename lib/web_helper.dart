@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:html/parser.dart';
 
 class WebHelper {
-  static const _corsProxy = 'https://corsproxy-371208.du.r.appspot.com/';
+  static const _corsProxy = 'https://corsproxy.io/?url=';
   static const _maxTry = 4;
   static Future<http.Response> getPage(String page) async {
     http.Response response;
