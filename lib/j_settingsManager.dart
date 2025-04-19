@@ -19,7 +19,15 @@ class JSettingsManager {
 
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _settings = readSettings();
+    _settings = _readSettings();
+  }
+
+  Future<dynamic> readSetting(String key) async {
+    return _settings[key];
+  }
+
+  Future<Map<String, dynamic>> readAllSettings() async {
+    return _settings;
   }
 
   Future<void> writeSetting(String key, dynamic value) async {
@@ -27,17 +35,13 @@ class JSettingsManager {
     await _prefs.setString(_key, jsonEncode(_settings));
   }
 
-  Future<void> writeSettings(Map<String, dynamic> settings) async {
+  Future<void> writeAllSettings(Map<String, dynamic> settings) async {
+    _settings.clear();
     _settings.addAll(settings);
     await _prefs.setString(_key, jsonEncode(_settings));
   }
 
-  Future<void> clearSettings() async {
-    _settings.clear();
-    await _prefs.setString(_key, jsonEncode(_settings));
-  }
-
-  Map<String, dynamic> readSettings() {
+  Map<String, dynamic> _readSettings() {
     final String? jsonString = _prefs.getString(_key);
     if (jsonString != null) {
       return jsonDecode(jsonString) as Map<String, dynamic>;
