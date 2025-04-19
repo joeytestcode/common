@@ -5,8 +5,8 @@ import 'common_strings.dart';
 
 const String homePage = 'https://joeyhwang.tistory.com';
 
-class MyAbout extends StatelessWidget {
-  const MyAbout({super.key});
+class JAbout extends StatelessWidget {
+  const JAbout({super.key});
 
   @override
   Widget build(BuildContext context) {

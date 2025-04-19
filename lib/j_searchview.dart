@@ -1,33 +1,19 @@
 import 'package:flutter/material.dart';
 
-class SearchView extends StatefulWidget {
-  const SearchView(
-      {Key? key, this.enableSearchOnTextChange = true, required this.onSearch})
-      : super(key: key);
+class JSearchView extends StatefulWidget {
+  const JSearchView(
+      {super.key,
+      this.enableSearchOnTextChange = true,
+      required this.onSearch});
 
   final bool enableSearchOnTextChange;
   final Function(String) onSearch;
   @override
-  State<SearchView> createState() => _SearchViewState();
+  State<JSearchView> createState() => _JSearchViewState();
 }
 
-class _SearchViewState extends State<SearchView> {
-  late final TextEditingController _controller;
-  late final FocusNode _focusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-    _focusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _focusNode.dispose();
-    super.dispose();
-  }
+class _JSearchViewState extends State<JSearchView> {
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +23,13 @@ class _SearchViewState extends State<SearchView> {
             child: Padding(
           padding: const EdgeInsets.fromLTRB(7, 0, 0, 0),
           child: TextField(
-            focusNode: _focusNode,
             autofocus: true,
             controller: _controller,
             onSubmitted: widget.onSearch,
             onChanged: widget.enableSearchOnTextChange ? widget.onSearch : null,
             decoration: InputDecoration(
+              fillColor: Colors.blueGrey.shade50,
+              filled: true,
               prefixIcon: IconButton(
                 icon: const Icon(Icons.search),
                 onPressed: () {
@@ -53,10 +40,10 @@ class _SearchViewState extends State<SearchView> {
                 onPressed: () {
                   _controller.text = '';
                   widget.onSearch('');
-                  _focusNode.requestFocus();
                 },
                 icon: const Icon(
                   Icons.clear_outlined,
+                  color: Colors.grey,
                 ),
               ),
             ),
