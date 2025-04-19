@@ -19,13 +19,13 @@ class JWeb {
     }
   }
 
-  static Future<Document?> getPage(String url) async {
+  static Future<Document> getPage(String url) async {
     http.Response? response = await _fetch(url);
 
     if (response.statusCode == 200) {
       return parse(response.body);
     } else {
-      return null;
+      return Document();
     }
   }
 
